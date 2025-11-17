@@ -1,75 +1,36 @@
-# AllBooks
+# StudyBuddy (Allbooks repo skeleton)
 
-Boas vindas a API do AllBooks!
+Este repositório contém o esqueleto inicial para o projeto StudyBuddy (nome temporário: Allbooks). O objetivo é organizar um monorepo com frontend, backend e infraestrutura para desenvolvimento local e deploy.
 
-O AllBooks é uma loja virtual que vende livros da Casa do Código. 
-É um MVP que tá só começando e ainda tem muitas funcionalidades novas para serem desenvolvidas.
+Visão geral
+- Frontend: /web (Next.js + TypeScript + Tailwind)
+- Backend: /api (Node.js + TypeScript + Prisma)
+- Infra: /infra (docker-compose para desenvolvimento)
 
-# JSONServer + JWT Auth
+MVP (estudantes)
+- CRUD de decks e cartões (texto e imagem)
+- Sessão de estudo com algoritmo SM-2
+- Autenticação (JWT)
+- PWA (offline básico)
 
-Essa é ma API Rest mockada, utilizando json-server e JWT.
+Como rodar localmente (dev rápido)
+1. Instale Docker e Docker Compose.
+2. Copie .env.example e preencha as variáveis.
+3. Inicie serviços de apoio:
+   cd infra
+   docker-compose up -d
+4. Entre nas pastas /api e /web para seguir os READMEs específicos.
 
-## 🛠️ Instalação
+Estrutura
+- /web: frontend Next.js
+- /api: backend Node.js + Prisma
+- /infra: docker-compose para Postgres, Redis
 
-```bash
-$ npm install
-$ npm run start-auth
-```
-## 🛠️ Como se registrar?
+Contribuições
+- Abra issues para features/bugs.
+- Use branch feature/* e envie PRs para revisão.
 
-Você pode fazer isso efetuando uma requisição post para:
+Contato
+- @jjoelcosta
 
-```
-POST http://localhost:8000/public/registrar
-```
-
-Com os seguintes dados:
-
-
-```
-{
-    "nome": "vinicios neves",
-    "email": "vinicios@alura.com.br",
-    "senha": "123456",
-    "endereco": "Rua Vergueiro, 3185",
-    "complemento": "Vila Mariana",
-    "cep": "04101-300"
-}
-```
-
-Repare que o e-mail é um campo único e usuários com e-mails duplicados não serão persistidos.
-
-## 🛠️ Como fazer login?
-
-Você pode fazer isso efetuando uma requisição post para:
-
-```
-POST http://localhost:8000/public/login
-```
-
-Com os seguintes dados:
-
-
-```
-{
-  "email": "vinicios@alura.com.br",
-  "senha":"123456"
-}
-```
-
-Você vai receber um token no seguinte formato:
-
-```
-{
-   "access_token": "<ACCESS_TOKEN>",
-   "user": { ... dados do usuário ... }
-}
-```
-
-## Autenticar próximas requests?
-
-E então, adicionar este mesmo token ao header das próximas requisições:
-
-```
-Authorization: Bearer <ACCESS_TOKEN>
-```
+License: MIT
